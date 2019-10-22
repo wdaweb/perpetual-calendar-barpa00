@@ -6,7 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>calendar</title>
     <style>
-
+    *{
+        list-style-type:none; /* *號的全域設定儘量放在樣式設定的最前面*/
+    }
+    body{
+        /*background: linear-gradient(to right, #654ea3, #eaafc8); */
+        font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+        font-size: 1.8em;
+        display:flex;
+        flex-flow:column;  /*改變元件排列的方向*/
+        justify-content:center;
+        align-items:center;
+    }    
     .border{
         background-color:skyblue;
         padding:20px;
@@ -17,28 +28,24 @@
         border-color:deeppink;
         border-style: solid double solid double;
         text-align:center;
-        position:absolute; top:50%;
-
+        /* position:absolute; */
+        /* top:50%; */
     }
     
-    body{
-        /*background: linear-gradient(to right, #654ea3, #eaafc8); */
-        font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
-        font-size: 1.8em;
-    }
-    .button1{
-        position:absolute; top:45%;
-        font-size:20px;
-    }
-    .button2{
-        position:absolute; top:45%; left:20%;
-        font-size:20px;
-        
 
+    .button1,.button2{　　/*屬性相同的標籤可以寫在一起，或是共同一個樣式名稱 */
+        display:inline-block;
+        font-size:20px;
     }
-    *{
-        list-style-type:none;
-    }
+   
+   h2{
+     width:260px;
+     display:flex;
+     align-items:center;
+     justify-content:space-between;  /*讓H2中的元素自動分配中間的空白間距*/
+     margin:0;/*消除H2本身的邊距*/
+   }
+
 
     .bg{
         border-radius:50%;
@@ -84,8 +91,9 @@
 
 ?>
 <h2>
-    <a href="index.php?month=<?php echo $premonth ?>&year=<?php echo $preyear ?>"><div class="button1">previous</div></a>
-    <a href="index.php?month=<?php echo $nextmonth ?>&year=<?php echo $nextyear ?>"><div class="button2">next</div></a>
+    <a href="?month=<?php echo $premonth ?>&year=<?php echo $preyear ?>"><div class="button1">prev</div></a>
+    <?=$year;?>
+    <a href="?month=<?php echo $nextmonth ?>&year=<?php echo $nextyear ?>"><div class="button2">next</div></a>
 </h2>
 <div class="border">
 <table >
@@ -142,9 +150,9 @@ for($i=0;$i<6;$i++){
 }
 
 ?>
-</div>
    
 </table>
+</div>
 
 </body>
 </html>
